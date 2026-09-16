@@ -1,0 +1,13 @@
+package com.mungai.dev.onlineRecruitmentSystem;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class OnlineRecruitmentSystemApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
