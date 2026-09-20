@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -50,7 +51,7 @@ public class Employee {
     private Status status;
 
     @Column(name = "address", nullable = false)
-    private String Address;
+    private String address;
 
     @Column(name = "gender", nullable = false)
     private String gender;
@@ -67,6 +68,11 @@ public class Employee {
     @JoinColumn(name = "manager_id")
     private Employee manager;
 
+    @Column(name="employedAt",updatable = true)
+    private LocalDateTime employedAt;
+    @Column(name="updatedAt")
+    private LocalDateTime updatedAt;
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -78,4 +84,19 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(employee_Id, nationalId, gender);
     }
+    @PrePersist
+    protected void onCreate(){
+        LocalDateTime now = LocalDateTime.now();
+        this.employedAt=now;
+        this.updatedAt=now;
+
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        LocalDateTime now = LocalDateTime.now();
+        this.updatedAt=now;
+
+    }
+    //Calculate the number of years of employment.
+
 }
