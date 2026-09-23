@@ -2,10 +2,13 @@ package com.mungai.dev.onlineRecruitmentSystem.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -72,6 +75,7 @@ public class Employee {
     private LocalDateTime employedAt;
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
+
 
     @Override
     public boolean equals(Object o) {

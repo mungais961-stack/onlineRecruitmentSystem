@@ -23,11 +23,13 @@ public class jobRole {
     private UUID role_Id;
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
-    @Column(name = "employees", nullable = true)
+    @Column(nullable = true)
     private List<Employee> employees;
 
     @Column(name = "role_name", nullable = false)
     private String role_Name;
+    @Column(nullable = true)
+    private String role_Description;
 
     @Override
     public boolean equals(Object o) {

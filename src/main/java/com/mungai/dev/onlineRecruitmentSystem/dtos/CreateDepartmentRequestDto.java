@@ -1,6 +1,6 @@
 package com.mungai.dev.onlineRecruitmentSystem.dtos;
 
-public record CreateDepartmentRequest(
+public record CreateDepartmentRequestDto(
      String department_name,
     String description
 ) {
