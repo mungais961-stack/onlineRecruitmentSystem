@@ -24,6 +24,8 @@ public class Department {
     @Column(name = "department_name", nullable = false)
     private String department_name;
 
+    private String description;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id", referencedColumnName = "employee_id")
     private Employee manager;

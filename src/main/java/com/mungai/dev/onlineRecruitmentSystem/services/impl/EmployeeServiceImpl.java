@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> listEmployees(Employee employee) {
+    public List<Employee> listEmployees() {
         return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "employedAt"));
 
     }
