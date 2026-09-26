@@ -4,10 +4,7 @@ package com.mungai.dev.onlineRecruitmentSystem.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
@@ -21,6 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -76,6 +74,17 @@ public class Employee {
     @Column(name="updatedAt")
     private LocalDateTime updatedAt;
 
+    public Employee(UUID employee_Id, String firstName, String lastName, String email, String phoneNumber, String address, jobRole role, LocalDateTime employedAt, Department department) {
+        this.employee_Id = employee_Id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.role = role;
+        this.employedAt = employedAt;
+        this.department = department;
+    }
 
     @Override
     public boolean equals(Object o) {

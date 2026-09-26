@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.UUID;
 
 public interface EmployeeService {
-    List<EmployeeDto>listEmployees(Employee employee);
+    List<Employee>listEmployees(Employee employee);
 
-    EmployeeDto createEmployee(EmployeeDto employeeDto);
+    Employee createEmployee(Employee request);
 
-    EmployeeDto getEmployee(UUID employeeId );
+    Employee getEmployee(UUID employeeId );
 
-    EmployeeDto updateEmployee(UUID employeeId, EmployeeDto employeeDto);
+    Employee updateEmployee(UUID employeeId, UpdateEmployeeRequest request);
 
     void deleteEmployee(UUID employeeId);
 }
